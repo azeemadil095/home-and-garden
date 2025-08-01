@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mocha Mousse Home & Garden</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-primary: #A47864; /* Mocha Mousse */
+      --color-primary-dark: #8E5F4F;
+      --color-secondary: #6490A4; /* Dusty Teal */
+      --color-neutral-light: #F3EFE9; /* Soft Ivory */
+      --color-neutral-dark: #2C2C2C; /* Charcoal */
+      --radius-lg: 24px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--color-neutral-dark);
+      background: var(--color-neutral-light);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--color-primary);
+      color: var(--color-neutral-light);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    nav a {
+      color: var(--color-neutral-light);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: var(--color-secondary);
+    }
+
+    .mobile-toggle {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--color-neutral-light);
+      cursor: pointer;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 4rem 2rem;
+      gap: 2rem;
+      background: var(--color-primary-dark);
+      color: var(--color-neutral-light);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 1rem;
+    }
+
+    .btn-primary {
+      background: var(--color-secondary);
+      color: var(--color-neutral-light);
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background: var(--color-neutral-light);
+      color: var(--color-primary-dark);
+    }
+
+    .categories {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .categories h2 {
+      font-size: 2rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .category-card {
+      background: var(--color-neutral-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      position: relative;
+    }
+
+    .category-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .category-card .label {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      color: #fff;
+      padding: 0.5rem;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    footer {
+      background: var(--color-neutral-dark);
+      color: var(--color-neutral-light);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        background: var(--color-primary);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 1rem;
+        border-radius: 0 0 0 var(--radius-lg);
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero img {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Mocha Mousse</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <button aria-label="Open Menu" class="mobile-toggle" hidden>&#9776;</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Elevate your Home &amp; Garden</h1>
+        <p>Discover curated décor, planters, outdoor furniture and more.</p>
+        <button class="btn-primary">Shop Now</button>
+      </div>
+      <img src="https://placehold.co/600x400?text=Hero+Image" alt="Stylish planter and lamp" />
+    </section>
+
+    <section class="categories">
+      <h2>Shop by Category</h2>
+      <div class="category-grid">
+        <div class="category-card">
+          <img src="https://placehold.co/400x300?text=Outdoor+Furniture" alt="Outdoor Furniture category image" />
+          <div class="label">Outdoor Furniture</div>
+        </div>
+        <div class="category-card">
+          <img src="https://placehold.co/400x300?text=Planters" alt="Planters category image" />
+          <div class="label">Planters</div>
+        </div>
+        <div class="category-card">
+          <img src="https://placehold.co/400x300?text=Lighting" alt="Lighting category image" />
+          <div class="label">Lighting</div>
+        </div>
+        <div class="category-card">
+          <img src="https://placehold.co/400x300?text=Textiles" alt="Textiles category image" />
+          <div class="label">Textiles</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mocha Mousse Home &amp; Garden — All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Mobile nav toggle logic
+    const nav = document.querySelector('nav ul');
+    const toggle = document.querySelector('.mobile-toggle');
+
+    function checkWidth() {
+      if (window.innerWidth < 768) {
+        toggle.hidden = false;
+        nav.style.display = 'none';
+      } else {
+        toggle.hidden = true;
+        nav.style.display = 'flex';
+      }
+    }
+
+    checkWidth();
+    window.addEventListener('resize', checkWidth);
+
+    toggle.addEventListener('click', () => {
+      const open = nav.style.display === 'flex';
+      nav.style.display = open ? 'none' : 'flex';
+    });
+  </script>
+</body>
+</html>
